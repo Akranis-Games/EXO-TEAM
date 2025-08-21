@@ -1,6 +1,6 @@
 ## Core-Übersicht (RageMP RP – DE)
 
-Siehe auch: [Admin-Guide](docs/admin_guide.md) · [Diagramme](docs/diagrams.md) · [Installation](docs/install_checklist.md) · [Deploy](docs/deploy_guide.md)
+Siehe auch: [Admin-Guide](docs/admin_guide.md) · [Diagramme](docs/diagrams.md) · [Installation](docs/install_checklist.md) · [Deploy](docs/deploy_guide.md) · [CORE](docs/core.md) ·
 
 ### Inhalt
 - Funktionen/Features
@@ -23,7 +23,41 @@ Siehe auch: [Admin-Guide](docs/admin_guide.md) · [Diagramme](docs/diagrams.md) 
 - UIs (CEF): Settings, Inventar, Bank, Fraktionspanel, Adminpanel
 
 ---
+### Voraussetzungen
+- Node.js 22+
+- RageMP Server (Windows)
 
+### Installation
+1) Kopiere die Ordner `server-files`, `packages` und `client_packages` in deinen RageMP-Server.
+2) Optional: `npm i` (aktuell nicht notwendig).
+3) Der echte Start erfolgt ueber `ragemp-server.exe`. Das Script `npm start` laedt nur die Entry-Datei.
+
+### Features
+- Join/Quit/Spawn Events
+- Deutsche Commands: `/register`, `/login`, `/hilfe`, `/me`, `/ooc`, `/id`, `/report`
+- Admin-Commands: `/veh`, `/dv`, `/tp`, `/setmoney`
+- JSON-Datei-Persistenz unter `storage/`
+
+### Konfiguration
+Datei: `config/default.json`
+
+```json
+{
+  "motd": "Willkommen auf dem RP-Server!",
+  "spawn": [-425.517, 1123.62, 325.854],
+  "adminIds": [1]
+}
+```
+
+### Start (RageMP)
+- Starte `ragemp-server.exe`.
+- Achte darauf, dass `server-files/index.js` existiert und `type: module` aktiv ist.
+
+### Hinweis
+Der Code prueft das Vorhandensein von `mp`, um lokale Node-Laeufe nicht scheitern zu lassen. Fuer den echten Serverbetrieb muss `mp` von RageMP bereitgestellt werden.
+
+
+# ----------------------------------------------------------------------------------------------------------------------------------
 ### Befehle (Commands)
 - Allgemein
   - `/hilfe`
