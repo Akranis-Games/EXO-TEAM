@@ -1,6 +1,6 @@
 ## Core-Übersicht (RageMP RP – DE)
 
-Siehe auch: [Admin-Guide](docs/admin_guide.md) · [Diagramme](docs/diagrams.md)
+Siehe auch: [Admin-Guide](docs/admin_guide.md) · [Diagramme](docs/diagrams.md) · [Installation](docs/install_checklist.md) · [Deploy](docs/deploy_guide.md)
 
 ### Inhalt
 - Funktionen/Features
