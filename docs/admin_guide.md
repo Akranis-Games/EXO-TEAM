@@ -1,9 +1,11 @@
 # Admin-Guide
 
 ## Zugriffssteuerung
+- **Authentifizierung erforderlich**: Admins müssen sich einloggen bevor Admin-Befehle funktionieren
 - Admin-IDs: `config/default.json` -> `adminIds: [1,2,...]`
-- Adminpanel oeffnen: `/admin` (CEF-UI)
-- Befehle sind zusaetzlich direkt per Chat verfuegbar (siehe unten).
+- Adminpanel öffnen: `/admin` oder **F10-Taste** (CEF-UI)
+- Befehle sind zusätzlich direkt per Chat verfügbar (siehe unten)
+- **Auth-Status**: `player.authenticated` muss `true` sein für alle Admin-Funktionen
 
 ## Befehle (Server)
 - `/veh [modell]`: Spawnt ein Fahrzeug beim Admin und setzt ihn auf den Fahrersitz.
@@ -14,11 +16,18 @@
 Voraussetzung: Spieler muss in `adminIds` enthalten sein oder `player.isAdmin === true` (RAGE Flag).
 
 ## Admin-UI (CEF)
+**Öffnen**: `/admin` oder **F10-Taste**  
 Datei: `client_packages/ui/admin/index.html`
-- Fahrzeug spawnen: Dropdown auswaehlen -> "Fahrzeug spawnen" (intern `/veh <modell>`)
-- Geld setzen: Spieler-ID + Betrag eingeben -> "Geld setzen" (intern `/setmoney <id> <betrag>`)
 
-Hinweis: Die UI nutzt clientseitig `mp.trigger('cmd', '/veh ...')` etc. Alternativ koennen dedizierte Remote-Events ergaenzt werden, falls du Chat-Kommandos vermeiden moechtest.
+### Funktionen
+- **Fahrzeug spawnen**: Dropdown auswählen → "Fahrzeug spawnen" (intern `/veh <modell>`)
+- **Geld setzen**: Spieler-ID + Betrag eingeben → "Geld setzen" (intern `/setmoney <id> <betrag>`)
+
+### Tastenkombinationen
+- **F10**: Admin-Panel öffnen/schließen
+- **ESC**: Admin-Panel schließen
+
+**Hinweis**: Die UI nutzt clientseitig `mp.trigger('cmd', '/veh ...')` etc. Alternativ können dedizierte Remote-Events ergänzt werden, falls du Chat-Kommandos vermeiden möchtest.
 
 ## Moderation & Reports
 - Spielerreports kommen ueber `/report [text]` bei allen Admins im Chat an.

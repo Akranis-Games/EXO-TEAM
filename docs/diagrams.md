@@ -1,5 +1,28 @@
 # Diagramme – Kern-Flows
 
+## Authentifizierung vor Spawn (NEU)
+```mermaid
+sequenceDiagram
+  participant Player
+  participant Server
+  participant CEF as Auth-UI
+  Player->>Server: Verbindung
+  Server->>Player: playerJoin (authenticated=false)
+  Server->>Player: playerReady
+  Server->>Player: auth:show (Auth-UI öffnen)
+  Player->>CEF: F1/F2 drücken
+  CEF->>Server: auth:login/register(password)
+  Server->>Server: Validierung
+  alt Login/Register erfolgreich
+    Server->>Player: authenticated=true
+    Server->>CEF: auth:response(true, message)
+    Server->>Player: player.spawn() + ui:close:auth
+  else Login/Register fehlgeschlagen
+    Server->>CEF: auth:response(false, error)
+    Note over Player: Muss erneut versuchen
+  end
+```
+
 ## Settings (CEF) – Client/Server Interaktion
 ```mermaid
 sequenceDiagram
@@ -82,4 +105,58 @@ flowchart TD
   MEM --> CHAT[Fraktionschat /f]
 ```
 
-Hinweis: Diese Diagramme spiegeln die aktuelle Implementierung wider (Events, Services, Konfiguration in `config/default.json`).
+## UI-System Übersicht (NEU)
+```mermaid
+flowchart TD
+  A[Spieler Joint Server] --> B[Auth-UI öffnet automatisch]
+  B --> C{Authentifiziert?}
+  C -- Nein --> D[F1/F2: Login/Register]
+  D --> E[Erfolg?]
+  E -- Nein --> D
+  E -- Ja --> F[Spawn + Alle UIs verfügbar]
+  C -- Ja --> F
+  
+  F --> G[F3: Charaktere]
+  F --> H[F5: Jobs] 
+  F --> I[F7: Vendor]
+  F --> J[F9: Fraktion]
+  F --> K[F10: Admin]
+  F --> L[I: Inventar]
+  F --> M[B: Bank]
+  
+  G --> N[Charakter erstellen/auswählen]
+  H --> O[Job beitreten/arbeiten]
+  I --> P[Artikel kaufen]
+  J --> Q[Mitglieder verwalten]
+  K --> R[Admin-Tools]
+  L --> S[Items verwalten]
+  M --> T[Geld verwalten]
+```
+
+## Tastenkombinationen-Map
+```mermaid
+mindmap
+  root((UIs))
+    Auth
+      F1
+      F2
+    Charaktere
+      F3
+      F4
+    Jobs
+      F5
+      F6
+    Vendor
+      F7
+      F8
+    System
+      F9[Fraktion]
+      F10[Admin]
+    Schnell
+      I[Inventar]
+      B[Bank]
+      W[Arbeiten]
+      ESC[Schließen]
+```
+
+**Hinweis**: Diese Diagramme spiegeln die aktuelle Implementierung wider (Events, Services, Konfiguration in `config/default.json`).
