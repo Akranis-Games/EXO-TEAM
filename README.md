@@ -60,6 +60,12 @@ Ein umfassender RageMP GTA 5 Roleplay-Server mit moderner C#-Architektur und Mon
 - **Digital Records System** - Digitale Akten-Systeme mit Verschlüsselung
 - **Civil Registry System** - Einwohnermeldeamt mit Geburts- und Heiratsurkunden
 - **Family Life System** - Familienleben-System mit Beziehungen und Events
+- **Resource Collection System** - Rohstoff Sammeln, Produktion und Verarbeitung
+- **Production System** - Produktions-System mit Fabriken und Fertigungslinien
+- **Diamond Cutting System** - Diamant Schleifer Job mit verschiedenen Schliffarten
+- **Gold Processing System** - Gold Verarbeitung mit verschiedenen Prozessen
+- **Emerald Processing System** - Smaragd Verarbeitung mit Qualitätsbewertung
+- **Factory System** - Fabriken System mit Produktionslinien und Mitarbeitern
 - **Inventory System** - Umfassendes Inventar-System mit Items und Trading
 - **Event System** - Turniere, Events und Wettbewerbe
 - **Admin System** - Vollständiges Admin-Panel mit Commands und Verwaltung
